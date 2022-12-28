@@ -16,14 +16,15 @@ public class P03 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
         // Navigate to  https://testpages.herokuapp.com/styled/index.html
         driver.get("https://testpages.herokuapp.com/styled/index.html");
 
         // Click on  Calculate under Micro Apps
         driver.findElement(By.id("calculatetest")).click();
 
-        //    Type any number in the first input
-        //    Type any number in the second input
+        // Type any number in the first input
+        // Type any number in the second input
         WebElement firstNumber = driver.findElement(By.id("number1"));
         firstNumber.sendKeys("30", Keys.TAB,Keys.TAB,"30",Keys.ENTER);
 

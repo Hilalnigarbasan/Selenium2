@@ -24,32 +24,33 @@ public class P01 {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        //-"amazon.com" adresine gidelim
+
+        //"amazon.com" adresine gidelim
         driver.get("https://amazon.com");
 
-        //-bu web adresinin sayfa basligini(title) ve adres(url)ini yazdıralım
+        //bu web adresinin sayfa basligini(title) ve adres(url)ini yazdıralım
         String actualTitle = driver.getTitle();
         String actualUrl = driver.getCurrentUrl();
         System.out.println("Sayfa Başlığı : "+actualTitle);
         System.out.println("Sayfa Url'i : "+actualUrl);
 
-        //-title ve url'nin "Spend" kelimesinin icerip icermedigini kontrol edelim
+        //title ve url'nin "Spend" kelimesinin icerip icermedigini kontrol edelim
         Assert.assertFalse(actualTitle.contains("Spend") && actualUrl.contains("Spend"));
 
-        //-Ardindan "trendyol.com" adresine gidelim
+        //Ardindan "trendyol.com" adresine gidelim
         driver.get("https://trendyol.com");
 
-        //-bu adresin basligini alalim ve "Sitesi" kelismesini icerip icermedigini kontrol edelim
+        //bu adresin basligini alalim ve "Sitesi" kelismesini icerip icermedigini kontrol edelim
         String trendyolTitle = driver.getTitle();
         Assert.assertTrue(trendyolTitle.contains("Sitesi"));
 
-        //-Bi onceki web sayfamiza geri donelim
+        //Bi onceki web sayfamiza geri donelim
         driver.navigate().back();
 
-        //-sayfayi yenileyelim
+        //sayfayi yenileyelim
         driver.navigate().refresh();
 
-        //-Daha sonra trendyol sayfamiza tekrar donelim ve sayfayi kapatalim
+        //Daha sonra trendyol sayfamiza tekrar donelim ve sayfayi kapatalim
         driver.navigate().forward();
         driver.quit();// Birden fazla sayfada çalışılmış ise quit() methodu kullanılır
     }

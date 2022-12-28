@@ -11,8 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class P06 {
-    //BeforeClass ile driver ı olusturun ve
-    //Maximize edin, 15 sn bekletin
+    //BeforeClass ile driver ı olusturun ve maximize edin, 15 sn bekletin
     //http://www.google.com adresine gidin
     //arama kutusuna "The God Father" yazip, cikan sonuc sayisini yazdirin
     //arama kutusuna  "Lord of the Rings" yazip, cikan sonuc sayisini yazdirin
@@ -60,5 +59,8 @@ public class P06 {
     @AfterClass
     public static void afterClass() throws Exception {
         driver.close();
+
+
+
     }
 }
