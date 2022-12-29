@@ -29,7 +29,5 @@ public class P05 {
         driver.findElement(By.xpath("id(\"email\")")).sendKeys("hilal@gmail.com");
 
 
-
-
     }
 }

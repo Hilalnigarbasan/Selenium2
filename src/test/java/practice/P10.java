@@ -3,7 +3,6 @@ package practice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -56,5 +55,6 @@ public class P10 {
     @AfterClass
     public static void afterClass() throws Exception {
         driver.close();
+
     }
 }
