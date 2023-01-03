@@ -7,9 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 public abstract class TestBase {
-    //    driver objesini olustur. Driver ya public yada protected olmali. Sebepi child classlarda gorulebilir olmasi
+
+    //driver objesini olustur. Driver ya public ya da protected olmali. Sebepi child classlarda gorulebilir olmasi
     protected static WebDriver driver;
-    //    setUp
+    //setUp
     @Before
     public void setup(){
         WebDriverManager.chromedriver().setup();
@@ -17,8 +18,8 @@ public abstract class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
-    //    tearDown
-    @After
+    //tearDown
+    //@After
     public void tearDown(){
         driver.quit();
     }
