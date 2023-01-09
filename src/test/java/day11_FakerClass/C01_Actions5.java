@@ -1,5 +1,4 @@
-package day11;
-import com.beust.ah.A;
+package day11_FakerClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

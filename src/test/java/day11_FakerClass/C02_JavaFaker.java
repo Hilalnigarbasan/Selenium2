@@ -1,4 +1,4 @@
-package day11;
+package day11_FakerClass;
 import com.github.javafaker.Faker;
 import org.junit.Test;
 public class C02_JavaFaker {
