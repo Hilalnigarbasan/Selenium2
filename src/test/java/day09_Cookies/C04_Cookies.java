@@ -1,4 +1,4 @@
-package day09;
+package day09_Cookies;
 import org.junit.Test;
 import org.openqa.selenium.Cookie;
 import utilities.TestBase;
