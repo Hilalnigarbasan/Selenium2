@@ -1,8 +1,7 @@
-package day12;
+package day12_Files;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 public class C01_FileUpload extends TestBase {
