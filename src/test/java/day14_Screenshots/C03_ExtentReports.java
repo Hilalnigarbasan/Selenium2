@@ -1,4 +1,4 @@
-package day14;
+package day14_Screenshots;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -21,7 +21,7 @@ public class C03_ExtentReports extends TestBase {
     public void extentReportsTest(){
 
         // REPORT  PATH
-        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String currentTime = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
         String path = System.getProperty("user.dir")+"/test-output/reports/"+currentTime+"html_report.html";
 
         // creating HTML report in the path
@@ -31,20 +31,20 @@ public class C03_ExtentReports extends TestBase {
         extentReports = new ExtentReports();
 
 
-//       *************************************RAPORU CUSTOMIZE EDEBILIRIZ*********************
-        extentReports.setSystemInfo("Test Environment","Regression");
-        extentReports.setSystemInfo("Application","TechPro Education");
+//       *********************************RAPORU CUSTOMIZE EDEBILIRIZ***********************
         extentReports.setSystemInfo("Browser","Chrome");
+        extentReports.setSystemInfo("Application","TechPro Education");
+        extentReports.setSystemInfo("Test Environment","Regression");
         extentReports.setSystemInfo("Takim","Eagles");
         extentReports.setSystemInfo("Epic","Odeme Sayfasi");
         extentReports.setSystemInfo("Sprint Numarasi","Sprint-145");
-        extentReports.setSystemInfo("QA","Ahmet");
+        extentReports.setSystemInfo("QA","Hilal");
 
-//        *********************************EXTRA RAPOR ISMI VE DOCUMAN ISMI EKLEYEBILIRIZ****
+//        ********************************EXTRA RAPOR ISMI VE DOCUMAN ISMI EKLEYEBILIRIZ****
         extentHtmlReporter.config().setDocumentTitle("TechProEd Extent Reports");
         extentHtmlReporter.config().setReportName("Regression Test Sonucu");
 
-//        ********************************RAPOR AYARLARI BITTI****************************
+//        ********************************RAPOR AYARLARI BITTI******************************
 
         // Raporu projeme ekliyorum
         extentReports.attachReporter(extentHtmlReporter);

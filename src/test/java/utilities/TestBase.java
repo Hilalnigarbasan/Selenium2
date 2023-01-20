@@ -198,7 +198,7 @@ public abstract class TestBase {
 
 //       2. Save screenshot
 //        getting the current time as string to use in teh screenshot name, previous screenshots will be kept
-        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String currentTime = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
 
 //        Path of screenshot save folder               folder / folder    /file name
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
@@ -213,7 +213,7 @@ public abstract class TestBase {
         File image = element.getScreenshotAs(OutputType.FILE);
 //        2. save screenshot
 //        path
-        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        String currentTime = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
         FileUtils.copyFile(image,new File(path));
     }

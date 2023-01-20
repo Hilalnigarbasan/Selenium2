@@ -1,4 +1,4 @@
-package day14;
+package day14_Screenshots;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
