@@ -39,8 +39,7 @@ public abstract class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));//20 SANIYEYE KADAR BEKLE.SELENIUM
     }
     //    tearDown
-
-    // @After
+   // @After
     public void tearDown(){
         waitFor(5);
         driver.quit();
@@ -178,7 +177,7 @@ public abstract class TestBase {
     }
 
     //======Fluent Wait====
-    // params : xpath of teh element , max timeout in seconds, polling in second
+    // paramametre : xpath of teh element , max timeout in seconds, polling in second
     public static WebElement fluentWait(String xpath, int withTimeout, int pollingEvery) {
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(withTimeout))//Wait 3 second each time
@@ -198,7 +197,7 @@ public abstract class TestBase {
 
 //       2. Save screenshot
 //        getting the current time as string to use in teh screenshot name, previous screenshots will be kept
-        String currentTime = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 
 //        Path of screenshot save folder               folder / folder    /file name
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
@@ -213,10 +212,61 @@ public abstract class TestBase {
         File image = element.getScreenshotAs(OutputType.FILE);
 //        2. save screenshot
 //        path
-        String currentTime = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
         FileUtils.copyFile(image,new File(path));
     }
 
+
+    //    SCROLLINTOVIEWJS
+//    @param : WebElement
+//    Verilen webelementin uzerine kaydirir
+    public void scrollIntoViewJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+
+    //    SAYFANIN EN ALTINA IN
+//    Bu method ile sayfanin en altina inebiliriz
+    public void scrollEndJS(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
+    }
+    //    Bu metot ile sayfanin en ustune cikabiliriz
+    public void scrollTopJS(){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
+
+    //    Bu metot ile belirli bir elemente JS executor ile tiklanabilir
+    public void clickByJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",element);
+    }
+
+    //   gitmis oldugum metni elemente yazdirir
+//    bu method sendKeys metotuna bir alternatifdir.
+//    sendKeys oncelikli tercihimizdir
+    public void typeWithJS(WebElement element, String metin){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].setAttribute('value','"+metin+"')",element);
+
+    }
+
+    //    input elementindeki degerleri(value) al
+//   Belirli bir WebElement'in id değerini String olarak alır ve value attribute değerini String olarak döndürür
+//    return
+//    document --> HTML'E GIT
+//    .getElementById('" + idOfElement + "') --> ID'si VERILEN ELEMENTI BUL
+//    .value")
+//    .toString();
+    public void getValueByJS(String idOfElement) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String text = js.executeScript("return document.getElementById('" + idOfElement + "').value").toString();
+        System.out.println("Kutudaki value: " + text);
+
+
+    }
 
 }
