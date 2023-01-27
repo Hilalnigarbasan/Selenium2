@@ -1,5 +1,7 @@
 package day15_ExtentReports;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,11 +22,13 @@ public class C02_WebTables extends TestBase {
 //    Parameter 2 = column numarasi
 //    printData(2,3);  => 2nd row, 3rd column daki datayı print etsin
 
+    private static Logger logger = LogManager.getLogger(C02_WebTables.class.getName());
     @Test
     public void table1Print(){
         driver.get("https://the-internet.herokuapp.com/tables");
         String table1 = driver.findElement(By.xpath("//table[@id='table1']")).getText();
-        System.out.println("TABLE 1 VERILERI");
+//        System.out.println("TABLE 1 VERILERI");
+        logger.info("TABLE 1 VERILERI");
         System.out.println(table1);
         List<WebElement> tumVeriler = driver.findElements(By.xpath("//table[@id='table1']//td"));
 //        tumVeriler.forEach(t-> System.out.println(t.getText()));//LAMDA
@@ -57,7 +61,6 @@ public class C02_WebTables extends TestBase {
         List<WebElement> sutun5 = driver.findElements(By.xpath("//table[@id='table1']//tbody//tr//td[5]"));
         sutun5.forEach(veri-> System.out.println(veri.getText()));
     }
-
     //    Task 5 : Iki parametreli bir Java metot oluşturalım: printData
 //    Parameter 1 = row numarasi
 //    Parameter 2 = column numarasi
@@ -70,9 +73,9 @@ public class C02_WebTables extends TestBase {
 
     @Test
     public void printDataTest(){
-        printData(2,3); //fbach@yahoo.com
-        printData(1,2); //John
-    }
+        printData(2,3);//fbach@yahoo.com
+        printData(1,2);//John
 
+    }
 
 }
